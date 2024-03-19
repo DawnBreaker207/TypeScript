@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { getAllProducts } from '~/apis/product'
 const ProductList = () => {
   const [product, setProduct] = useState([])
