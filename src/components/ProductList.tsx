@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { getAllProducts } from '~/apis/product'
 const ProductList = () => {
   const [product, setProduct] = useState([])
 
   useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const { data } = await axios.get(`http://localhost:3000/products`)
-        setProduct(data)
-        console.log(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getProduct()
+    ;(async () => {
+      const data = await getAllProducts()
+      setProduct(data)
+    })()
   }, [])
   return (
     <>
