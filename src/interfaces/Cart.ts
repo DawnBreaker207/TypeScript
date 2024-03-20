@@ -1,4 +1,4 @@
-export type cartType = {
+export type Cart = {
   id: number
   products: productsType[]
   total: number

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { getAllProducts } from '~/apis/product'
+import { Product } from '~/interfaces/Product'
 const ProductList = () => {
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState<Product[]>([])
 
   useEffect(() => {
     ;(async () => {
@@ -16,7 +18,9 @@ const ProductList = () => {
           return (
             <li key={id} className='text-gray-700 bg-white shadow-md bg-clip-border rounded-xl '>
               <div className='relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96'>
-                <img src={thumbnail} alt='' className='object-cover w-full h-full' />
+                <Link to={`/shop/${id}`}>
+                  <img src={thumbnail} alt='' className='object-cover w-full h-full' />
+                </Link>
               </div>
               <div className='p-6'>
                 <div className='flex items-center justify-between mb-2'>
