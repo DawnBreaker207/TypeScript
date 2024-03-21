@@ -3,17 +3,11 @@ import { useParams } from 'react-router-dom'
 import { Product } from '~/interfaces/Product'
 import instance from '~/apis'
 const ProductDetail = () => {
-  const params = useParams()
-  const [product, setProduct] = useState<Product>({
-    id: 0,
-    title: '',
-    thumbnail: '',
-    price: 0,
-    description: ''
-  })
+  const { id } = useParams()
+  const [product, setProduct] = useState<Product | null>(null)
   useEffect(() => {
     const getProduct = async () => {
-      const { data } = await instance.get(`/products/${params.id}`)
+      const { data } = await instance.get(`/products/${id}`)
       setProduct(data)
     }
     getProduct()
@@ -21,11 +15,11 @@ const ProductDetail = () => {
   return (
     <>
       <div>Chi tiết sản phẩm</div>
-      <div>Id: {params.id}</div>
-      <div>{product.id}</div>
-      <div>{product.price}</div>
-      <div>{product.rating}</div>
-      <img src={product.thumbnail} />
+      <div>Id: {id}</div>
+      <div>{product?.id}</div>
+      <div>{product?.price}</div>
+      <div>{product?.rating}</div>
+      <img src={product?.thumbnail} />
     </>
   )
 }
