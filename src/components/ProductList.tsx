@@ -24,9 +24,11 @@ const ProductList = () => {
               </div>
               <div className='p-6'>
                 <div className='flex items-center justify-between mb-2'>
-                  <p className='block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900'>
-                    {title}
-                  </p>
+                  <Link to={`/shop/${id}`}>
+                    <p className='block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900'>
+                      {title}
+                    </p>
+                  </Link>
                   <p className='block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900'>
                     Price: {price}
                   </p>
