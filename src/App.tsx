@@ -8,11 +8,13 @@ import Products from './pages/Products'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import ProductDetail from './pages/ProductDetail'
+import Banner from './components/Banner/Banner-Boostrap'
 
 const App = () => {
   return (
     <>
       <Header />
+      {/* <Banner /> */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Products />} />
