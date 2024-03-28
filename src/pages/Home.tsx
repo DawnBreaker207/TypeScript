@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Product } from '~/interfaces/Product'
 
 type Props = {
-  product: Product
+  product: Product[]
 }
 const Home: React.FC<Props> = ({ product }) => {
   console.log(product)

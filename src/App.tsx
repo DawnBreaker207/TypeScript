@@ -26,12 +26,18 @@ const App = () => {
       <Header />
       {/* <Banner /> */}
       <Routes>
-        <Route index element={<Home product={products} />} />
-        <Route path='/shop' element={<Home product={products} />} />
-        <Route path='/shop/:id' element={<ProductDetail />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/admin' element={<Dashboard />} />
+        {/* Client */}
+        <Route path='/'>
+          <Route index element={<Home product={products} />} />
+          <Route path='/shop' element={<Home product={products} />} />
+          <Route path='/shop/:id' element={<ProductDetail />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Route>
+        {/* Admin */}
+        <Route path='/admin'>
+          <Route index element={<Dashboard product={products} />} />
+        </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
